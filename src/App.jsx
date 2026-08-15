@@ -9,6 +9,31 @@ const GATWICK = { lat: 51.1537, lng: -0.1821, label: "Gatwick North Terminal, Ze
 const DAILY_RATE = 6.5;
 const BOOKING_FEE = 4;
 const WHATSAPP_NUMBER = "441293300006";
+const PARKFLOW_SCRIPT_SRC = "https://widget.parkflow.io/elements/parkflow-widget.js";
+const PARKFLOW_CONFIG = {
+  parking: "3dcd4a5b-f6a4-4715-9a6e-6e367ba7cfc5",
+  tenant: "zebragatwickparking.parkflow.io",
+  locale: "en",
+  color: "#9155fd",
+};
+
+function useParkflowWidgetScript() {
+  const [ready, setReady] = useState(false);
+  useEffect(() => {
+    const existing = document.querySelector(`script[src="${PARKFLOW_SCRIPT_SRC}"]`);
+    if (existing) {
+      setReady(true);
+      return;
+    }
+    const script = document.createElement("script");
+    script.src = PARKFLOW_SCRIPT_SRC;
+    script.async = true;
+    script.crossOrigin = "true";
+    script.onload = () => setReady(true);
+    document.body.appendChild(script);
+  }, []);
+  return ready;
+}
 
 function whatsappLink(message) {
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(message)}`;
@@ -101,7 +126,7 @@ function Crossing({ stage, mode }) {
 }
 
 function StepHeader({ step }) {
-  const steps = ["Search", "Details", "Checkout", "Confirmed"];
+  const steps = ["Book", "Handover", "Confirmed"];
   return (
     <div className="flex items-center gap-1 mb-5">
       {steps.map((s, i) => (
@@ -159,6 +184,7 @@ const inputStyle = {
 
 export default function ZebraParkingApp() {
   const [step, setStep] = useState(0);
+  const [tab, setTab] = useState("book");
   const [booking, setBooking] = useState({
     dropDate: todayISO(1),
     dropTime: "07:30",
@@ -193,23 +219,10 @@ export default function ZebraParkingApp() {
     return { parking, fee: BOOKING_FEE, total: parking + BOOKING_FEE };
   }, [days]);
 
-  function validateSearch() {
+  function validateHandover() {
     const e = {};
-    const d1 = new Date(`${booking.dropDate}T${booking.dropTime}`);
-    const d2 = new Date(`${booking.returnDate}T${booking.returnTime}`);
     if (!booking.reg.trim()) e.reg = "Enter your vehicle registration.";
-    if (d2 <= d1) e.dates = "Collection must be after drop-off.";
-    setErrors(e);
-    return Object.keys(e).length === 0;
-  }
-
-  function validateDetails() {
-    const e = {};
-    if (!details.name.trim()) e.name = "Enter your name.";
-    if (!/^\S+@\S+\.\S+$/.test(details.email)) e.email = "Enter a valid email.";
     if (!/^[0-9+ ]{7,}$/.test(details.phone)) e.phone = "Enter a valid phone number.";
-    if (!details.make.trim()) e.make = "Enter your car make.";
-    if (!details.colour.trim()) e.colour = "Enter your car colour.";
     setErrors(e);
     return Object.keys(e).length === 0;
   }
@@ -310,44 +323,34 @@ export default function ZebraParkingApp() {
         </div>
 
         <div className="px-5 pb-8">
-          {step < 3 && <StepHeader step={step} />}
+          {tab === "book" && step < 2 && <StepHeader step={step} />}
 
-          {step === 0 && (
-            <SearchScreen
+          {tab !== "book" && <TabSwitcher tab={tab} setTab={setTab} />}
+          {tab === "book" && step === 0 && <TabSwitcher tab={tab} setTab={setTab} />}
+
+          {tab === "pricing" && <PricingScreen />}
+          {tab === "manage" && <ManageBookingScreen />}
+
+          {tab === "book" && step === 0 && <BookingWidgetScreen onNext={() => setStep(1)} />}
+
+          {tab === "book" && step === 1 && (
+            <HandoverDetailsScreen
               booking={booking}
               setBooking={setBooking}
-              errors={errors}
-              days={days}
-              price={price}
-              onNext={() => validateSearch() && setStep(1)}
-            />
-          )}
-
-          {step === 1 && (
-            <DetailsScreen
               details={details}
               setDetails={setDetails}
               errors={errors}
               onBack={() => setStep(0)}
-              onNext={() => validateDetails() && setStep(2)}
+              onNext={() => {
+                if (validateHandover()) {
+                  setBookingRef(booking.parkflowRef || makeRef());
+                  setStep(2);
+                }
+              }}
             />
           )}
 
-          {step === 2 && (
-            <CheckoutScreen
-              booking={booking}
-              days={days}
-              price={price}
-              card={card}
-              setCard={setCard}
-              errors={errors}
-              paying={paying}
-              onBack={() => setStep(1)}
-              onPay={pay}
-            />
-          )}
-
-          {step === 3 && !trackMode && (
+          {tab === "book" && step === 2 && !trackMode && (
             <ConfirmationScreen
               bookingRef={bookingRef}
               booking={booking}
@@ -357,7 +360,7 @@ export default function ZebraParkingApp() {
             />
           )}
 
-          {step === 3 && trackMode && (
+          {tab === "book" && step === 2 && trackMode && (
             <TrackingScreen
               mode={trackMode}
               booking={booking}
@@ -365,6 +368,153 @@ export default function ZebraParkingApp() {
             />
           )}
         </div>
+      </div>
+    </div>
+  );
+}
+
+function ParkflowWidget({ type }) {
+  const ready = useParkflowWidgetScript();
+  const props = { tenant: PARKFLOW_CONFIG.tenant, locale: PARKFLOW_CONFIG.locale, color: PARKFLOW_CONFIG.color };
+  if (type !== "Manage") props.parking = PARKFLOW_CONFIG.parking;
+  if (type) props.type = type;
+  return (
+    <div className="rounded-md overflow-hidden" style={{ border: "1px solid var(--line)", minHeight: 320 }}>
+      {!ready && (
+        <div className="flex items-center justify-center h-full py-16 text-[13px]" style={{ color: "var(--muted)" }}>
+          <Loader2 size={16} className="animate-spin mr-2" /> Loading…
+        </div>
+      )}
+      {/* eslint-disable-next-line react/no-unknown-property */}
+      <parkflow-widget {...props} />
+    </div>
+  );
+}
+
+function TabSwitcher({ tab, setTab }) {
+  const tabs = [
+    { id: "book", label: "Book" },
+    { id: "pricing", label: "Pricing" },
+    { id: "manage", label: "Manage booking" },
+  ];
+  return (
+    <div className="flex gap-1 mb-4 p-1 rounded-md" style={{ background: "var(--stripe)" }}>
+      {tabs.map((t) => (
+        <button
+          key={t.id}
+          onClick={() => setTab(t.id)}
+          className="flex-1 py-2 rounded text-[13px] font-medium"
+          style={{
+            background: tab === t.id ? "var(--ink)" : "transparent",
+            color: tab === t.id ? "var(--paper)" : "var(--muted)",
+            border: "none",
+            cursor: "pointer",
+          }}
+        >
+          {t.label}
+        </button>
+      ))}
+    </div>
+  );
+}
+
+function PricingScreen() {
+  return (
+    <div>
+      <h2 className="font-display" style={{ fontSize: 26, fontWeight: 900, marginBottom: 4 }}>
+        Check pricing
+      </h2>
+      <p className="text-[13px] mb-4" style={{ color: "var(--muted)" }}>
+        See live rates for your dates before you commit to booking.
+      </p>
+      <ParkflowWidget type="Pricing" />
+    </div>
+  );
+}
+
+function ManageBookingScreen() {
+  return (
+    <div>
+      <h2 className="font-display" style={{ fontSize: 26, fontWeight: 900, marginBottom: 4 }}>
+        Manage your booking
+      </h2>
+      <p className="text-[13px] mb-4" style={{ color: "var(--muted)" }}>
+        Look up an existing booking to view, amend, or cancel it — no call needed.
+      </p>
+      <ParkflowWidget type="Manage" />
+    </div>
+  );
+}
+
+function BookingWidgetScreen({ onNext }) {
+  return (
+    <div>
+      <h2 className="font-display" style={{ fontSize: 26, fontWeight: 900, marginBottom: 4 }}>
+        Book your space
+      </h2>
+      <p className="text-[13px] mb-4" style={{ color: "var(--muted)" }}>
+        Real prices, real availability, secure payment — powered by ParkFlow. This is the same
+        booking system as our main website.
+      </p>
+
+      <ParkflowWidget />
+
+      <p className="text-[12px] mt-3 mb-1" style={{ color: "var(--muted)" }}>
+        Once you've completed payment above and have your confirmation, continue below to set up
+        live handover tracking and WhatsApp updates for your trip.
+      </p>
+      <button className="zb-btn-primary w-full mt-2" onClick={onNext}>
+        I've booked — set up my live handover <ChevronRight size={16} />
+      </button>
+    </div>
+  );
+}
+
+function HandoverDetailsScreen({ booking, setBooking, details, setDetails, errors, onBack, onNext }) {
+  const setB = (k) => (e) => setBooking({ ...booking, [k]: e.target.value });
+  const setD = (k) => (e) => setDetails({ ...details, [k]: e.target.value });
+  return (
+    <div>
+      <h2 className="font-display" style={{ fontSize: 24, fontWeight: 900, marginBottom: 4 }}>
+        Set up your handover
+      </h2>
+      <p className="text-[13px] mb-4" style={{ color: "var(--muted)" }}>
+        A few quick details so we can track your arrival and message you on WhatsApp instead of calling.
+      </p>
+
+      <Field label="ParkFlow booking reference">
+        <input style={inputStyle} value={booking.parkflowRef || ""} onChange={setB("parkflowRef")} placeholder="From your confirmation email" />
+      </Field>
+
+      <Field label="Vehicle registration">
+        <input
+          style={inputStyle}
+          value={booking.reg}
+          onChange={(e) => setBooking({ ...booking, reg: e.target.value.toUpperCase() })}
+          placeholder="e.g. LP19 ZBR"
+        />
+      </Field>
+      {errors.reg && <div className="zb-err">{errors.reg}</div>}
+
+      <Field label="Terminal">
+        <select style={inputStyle} value={booking.terminal} onChange={setB("terminal")}>
+          <option>North</option>
+          <option>South</option>
+        </select>
+      </Field>
+
+      <Field label="Your mobile number">
+        <input style={inputStyle} value={details.phone} onChange={setD("phone")} placeholder="07700 900123" />
+      </Field>
+      {errors.phone && <div className="zb-err">{errors.phone}</div>}
+
+      <div className="flex gap-2 mt-4">
+        <button className="zb-btn-secondary" onClick={onBack}>
+          <ChevronLeft size={16} /> Back
+        </button>
+        <button className="zb-btn-primary flex-1" onClick={onNext}>
+          Continue <ChevronRight size={16} />
+        </button>
       </div>
     </div>
   );
@@ -567,23 +717,20 @@ function ConfirmationScreen({ bookingRef, booking, details, price, onTrack }) {
         </span>
       </div>
       <p className="text-[13px] mb-4" style={{ color: "var(--muted)" }}>
-        A confirmation has been sent to {details.email || "your email"}.
+        Your booking and payment are confirmed via ParkFlow. Here's your handover setup.
       </p>
 
       <div className="p-3 rounded-md mb-4" style={{ background: "var(--ink)", color: "var(--paper)" }}>
         <div className="text-[11px] uppercase tracking-widest mb-1" style={{ color: "var(--beacon)" }}>
-          Booking reference
+          Reference
         </div>
         <FlipText text={bookingRef} className="text-[22px] font-mono" />
       </div>
 
       <div className="p-3 rounded-md mb-4" style={{ background: "var(--stripe)" }}>
-        <Row label="Vehicle" value={`${details.make || "—"} ${details.model || ""}, ${details.colour || "—"}`} />
         <Row label="Registration" value={booking.reg || "—"} />
-        <Row label="Drop-off" value={`${booking.dropDate} · ${booking.dropTime}`} />
-        <Row label="Collection" value={`${booking.returnDate} · ${booking.returnTime}`} />
         <Row label="Terminal" value={booking.terminal} />
-        <Row label="Total paid" value={`£${price.total.toFixed(2)}`} bold />
+        <Row label="Mobile" value={details.phone || "—"} bold />
       </div>
 
       <p className="text-[11px] uppercase tracking-wide mb-2" style={{ color: "var(--muted)" }}>
@@ -788,5 +935,4 @@ function TrackingScreen({ mode, booking, onBack }) {
     </div>
   );
 }
-
 
