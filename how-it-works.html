@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Gatwick Airport Meet & Greet Parking — Zebra Parking</title>
-<meta name="description" content="Zebra Parking — secure, reliable, affordable Gatwick Airport meet & greet parking. 24/7 monitored compound, uniformed and insured chauffeurs, instant online quotes.">
-<link rel="canonical" href="https://www.zebraparkinggatwick.com/">
+<title>How It Works — Zebra Parking</title>
+<meta name="description" content="See how Zebra Parking's meet & greet service works, from instant quote to departures gate.">
+<link rel="canonical" href="https://www.zebraparkinggatwick.com/how-it-works.html">
 <meta property="og:type" content="website">
 <meta property="og:site_name" content="Zebra Parking">
-<meta property="og:title" content="Gatwick Airport Meet & Greet Parking — Zebra Parking">
-<meta property="og:url" content="https://www.zebraparkinggatwick.com/">
+<meta property="og:title" content="How It Works — Zebra Parking">
+<meta property="og:url" content="https://www.zebraparkinggatwick.com/how-it-works.html">
 <meta property="og:image" content="https://www.zebraparkinggatwick.com/assets/zebra-logo-white.png">
 <meta name="twitter:card" content="summary">
 <script type="application/ld+json">
@@ -218,7 +218,8 @@
   /* Journey */
   .journey{display:grid; grid-template-columns:repeat(3,1fr); gap:28px;}
   .journey-card{background:var(--white); border:2px solid var(--ink); border-radius:var(--radius); overflow:hidden;}
-  .journey-art{height:150px; display:flex; align-items:center; justify-content:center; background:var(--ink);}
+  .journey-art{height:150px; display:flex; align-items:center; justify-content:center; background:var(--ink); overflow:hidden;}
+  .journey-art img{width:100%; height:100%; object-fit:cover;}
   .journey-body{padding:24px;}
   .journey-body .tag{font-size:11.5px; font-weight:800; text-transform:uppercase; letter-spacing:0.06em; color:var(--forest); margin-bottom:8px; display:block;}
   .journey-body h4{font-size:18px; margin-bottom:8px;}
@@ -338,133 +339,77 @@
 </header>
 
 <main>
-<section class="hero">
+<section id="how-it-works" style="background:var(--white); border-top:2px solid var(--ink); border-bottom:2px solid var(--ink);">
     <div class="wrap">
-      <div>
-        <span class="eyebrow">Gatwick Airport Meet &amp; Greet</span>
-        <h1>Park like a pro. <em>Fly stress free.</em></h1>
-        <p class="lead">Meet our driver at the terminal, hand over your keys, and head straight to departures. Your car stays safe in our secure, monitored compound until you land.</p>
-        <ul class="checklist">
-          <li><span class="tick">✓</span> Professional meet &amp; greet, right at the terminal</li>
-          <li><span class="tick">✓</span> 24/7 CCTV-monitored, fenced compound</li>
-          <li><span class="tick">✓</span> Reliable, uniformed and insured chauffeurs</li>
-          <li><span class="tick">✓</span> Ready for you 24/7, 365 days a year</li>
-        </ul>
-        <div class="stat-row">
-          <div class="stat"><b>5.0★</b><span>Customer rating</span></div>
-          <div class="stat"><b>24/7</b><span>Compound security</span></div>
-          <div class="stat"><b>2 min</b><span>Online booking</span></div>
-        </div>
+      <div class="section-head">
+        <span class="eyebrow">Simple as 1-2-3</span>
+        <h1>How Zebra Parking works</h1>
+        <p>From quote to departures gate in three easy steps.</p>
       </div>
-
-      <div class="quote-card" id="quote">
-        <div id="quoteSummary">
-          <h3>Get an instant quote</h3>
-          <div class="sub">Real prices — just pick your dates.</div>
-          <div class="field" style="margin-bottom:12px;">
-            <label for="airport">Airport</label>
-            <select id="airport">
-              <option value="gatwick">London Gatwick</option>
-              <option value="heathrow">London Heathrow</option>
-              <option value="stansted">London Stansted</option>
-            </select>
+      <div class="route">
+        <div class="route-track">
+          <div class="route-step">
+            <div class="route-num">1</div>
+            <h4>Get a quote</h4>
+            <p>Enter your travel dates above and get an instant price from our live booking calculator.</p>
           </div>
-          <div class="field" id="terminalField" style="margin-bottom:12px;">
-            <label for="terminal">Terminal</label>
-            <select id="terminal">
-              <option value="north">North Terminal</option>
-              <option value="south">South Terminal</option>
-            </select>
+          <div class="route-step">
+            <div class="route-num">2</div>
+            <h4>Book online</h4>
+            <p>Complete your booking in under two minutes through our secure payment gateway — confirmation lands in your inbox straight after.</p>
           </div>
-          <div class="field-row">
-            <div class="field">
-              <label for="dropDate">Drop-off date</label>
-              <input type="date" id="dropDate">
-            </div>
-            <div class="field">
-              <label for="dropTime">Time</label>
-              <input type="time" id="dropTime" value="06:00">
-            </div>
+          <div class="route-step">
+            <div class="route-num">3</div>
+            <h4>Meet our driver</h4>
+            <p>Meet your chauffeur at Gatwick, hand over the keys, and head straight to departures.</p>
           </div>
-          <div class="field-row">
-            <div class="field">
-              <label for="pickDate">Pick-up date</label>
-              <input type="date" id="pickDate">
-            </div>
-            <div class="field">
-              <label for="pickTime">Time</label>
-              <input type="time" id="pickTime" value="18:00">
-            </div>
-          </div>
-          <div class="quote-result">
-            <div>
-              <div class="days" id="dayCount">Pick your dates</div>
-            </div>
-          </div>
-          <button class="btn btn-primary btn-block" id="openBookingBtn" type="button">Get My Quote →</button>
-          <div class="quote-note">Includes meet &amp; greet at the terminal and secure parking at Gatwick, Heathrow or Stansted. See your exact price on the next step.</div>
-          <div class="badge-row">
-            <span>🔒 Secure compound</span>
-            <span>🎥 CCTV 24/7</span>
-            <span>🤝 Meet &amp; Greet</span>
-            <span>🎽 Uniformed &amp; insured drivers</span>
-            <span>🕐 Open 24/7, 365 days</span>
-          </div>
-        </div>
-        <div id="bookingWidget" style="display:none;">
-          <h3>Complete your booking</h3>
-          <div class="sub" style="margin-bottom:16px;">Fill in your details below to confirm.</div>
-          <parkflow-widget parking="3dcd4a5b-f6a4-4715-9a6e-6e367ba7cfc5" tenant="zebragatwickparking.parkflow.io" locale="en" color="#F1610C"></parkflow-widget>
         </div>
       </div>
     </div>
   </section>
-
-  <div class="stripes"></div>
 
   <img src="assets/banner-meet-greet.jpg" alt="Zebra Parking meet and greet handover" class="trust-banner tall">
 
-  <div class="stripes"></div>
-
-<section id="services">
+<!-- JOURNEY -->
+  <section>
     <div class="wrap">
       <div class="section-head">
-        <span class="eyebrow">Why choose Zebra</span>
-        <h2>We care. We park. You fly.</h2>
-        <p>A top-tier parking experience for every traveller departing Gatwick — families, business trips, and anyone who wants peace of mind for their car while they're away.</p>
+        <span class="eyebrow">Your seamless parking journey</span>
+        <h2>From arrival to collection</h2>
+        <p>A simple, stress-free process for your Gatwick airport parking with Zebra Parking.</p>
       </div>
-      <div class="value-grid">
-        <div class="value-cell">
-          <svg class="icon" viewBox="0 0 40 40" fill="none"><rect x="6" y="6" width="28" height="28" rx="4" stroke="#14161A" stroke-width="2.5"/><path d="M13 20l5 5 9-11" stroke="#2F6B4F" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>
-          <h4>Secure and safe storage</h4>
-          <p>Monitored around the clock — your car comes back exactly as you left it.</p>
+      <div class="journey">
+        <div class="journey-card">
+          <div class="journey-art">
+            <img src="assets/banner-meet-greet.jpg" alt="Meet and greet arrival" style="object-position:center 55%;">
+          </div>
+          <div class="journey-body">
+            <span class="tag">Step one</span>
+            <h4>Arrival at Gatwick</h4>
+            <p>Drive to our designated drop-off point where our team greets you, confirms your booking, runs a quick vehicle check, and helps with luggage. Your holiday starts here.</p>
+          </div>
         </div>
-        <div class="value-cell">
-          <svg class="icon" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="14" stroke="#14161A" stroke-width="2.5"/><path d="M20 12v8l6 4" stroke="#2F6B4F" stroke-width="3" stroke-linecap="round"/></svg>
-          <h4>Convenient for every traveller</h4>
-          <p>Fits your schedule, day or night, and makes airport parking effortless.</p>
+        <div class="journey-card">
+          <div class="journey-art">
+            <img src="assets/journey-cctv-icon.png" alt="Secure CCTV compound">
+          </div>
+          <div class="journey-body">
+            <span class="tag">While you're away</span>
+            <h4>Safe in the compound</h4>
+            <p>Your car is stored in our secure, fenced compound with 24/7 CCTV and regular patrols — plus a complimentary clean. Valet extras are available for a small fee.</p>
+          </div>
         </div>
-        <div class="value-cell">
-          <svg class="icon" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="13" r="6" stroke="#14161A" stroke-width="2.5"/><path d="M9 33c1-7 6-11 11-11s10 4 11 11" stroke="#2F6B4F" stroke-width="2.5" stroke-linecap="round"/></svg>
-          <h4>Reliable, uniformed drivers</h4>
-          <p>Every car is handled by a reliable, uniformed and fully insured chauffeur.</p>
-        </div>
-        <div class="value-cell">
-          <svg class="icon" viewBox="0 0 40 40" fill="none"><circle cx="20" cy="20" r="14" stroke="#14161A" stroke-width="2.5"/><path d="M20 12v8l6 4" stroke="#2F6B4F" stroke-width="3" stroke-linecap="round"/></svg>
-          <h4>Ready whenever you land</h4>
-          <p>Return any time — your car will be ready, 24/7, 365 days a year.</p>
+        <div class="journey-card">
+          <div class="journey-art">
+            <svg width="70" height="70" viewBox="0 0 40 40" fill="none"><path d="M20 6l3 7 7 1-5 5 1 7-6-3-6 3 1-7-5-5 7-1z" stroke="#FFB400" stroke-width="2.2" stroke-linejoin="round"/></svg>
+          </div>
+          <div class="journey-body">
+            <span class="tag">Step three</span>
+            <h4>Return &amp; collection</h4>
+            <p>Land, call us, and your freshly cleaned car will be waiting at the collection point. Grab your keys and drive home, refreshed and ready.</p>
+          </div>
         </div>
       </div>
-    </div>
-  </section>
-
-<!-- CTA -->
-  <section class="cta-band">
-    <div class="wrap">
-      <span class="eyebrow" style="color:var(--amber);">Your journey starts with us</span>
-      <h2>Book your spot today</h2>
-      <p>Experience the ease and reliability of Zebra Airport Parking, and travel with confidence.</p>
-      <a href="#quote" class="btn btn-primary">Book Your Parking Now</a>
     </div>
   </section>
 </main>
@@ -519,86 +464,105 @@
 <script>
   var __yr = document.getElementById('yr'); if(__yr){ __yr.textContent = new Date().getFullYear(); }
 
-  (function(){
-    var dropDate = document.getElementById('dropDate');
-    var pickDate = document.getElementById('pickDate');
-    var dropTime = document.getElementById('dropTime');
-    var pickTime = document.getElementById('pickTime');
-    var dayCount = document.getElementById('dayCount');
-    var airport = document.getElementById('airport');
-    var terminal = document.getElementById('terminal');
-    var terminalField = document.getElementById('terminalField');
-    var openBtn = document.getElementById('openBookingBtn');
-    var summary = document.getElementById('quoteSummary');
-    var widget = document.getElementById('bookingWidget');
+  if(document.getElementById('dropDate')){
+  // Set sensible default dates
+  const dropDate = document.getElementById('dropDate');
+  const pickDate = document.getElementById('pickDate');
+  const dropTime = document.getElementById('dropTime');
+  const pickTime = document.getElementById('pickTime');
+  const dayCount = document.getElementById('dayCount');
+  const priceOut = document.getElementById('priceOut');
+  const bookBtn = document.getElementById('bookBtn');
+  const airport = document.getElementById('airport');
+  const terminal = document.getElementById('terminal');
+  const terminalField = document.getElementById('terminalField');
 
-    if(!dropDate) return; // calculator not on this page
+  function toggleTerminal(){
+    terminalField.style.display = (airport.value === 'gatwick') ? '' : 'none';
+  }
+  airport.addEventListener('change', toggleTerminal);
+  toggleTerminal();
 
-    var airportLabel = { gatwick: 'Gatwick', heathrow: 'Heathrow', stansted: 'Stansted' };
+  const airportLabel = { gatwick: 'Gatwick', heathrow: 'Heathrow', stansted: 'Stansted' };
 
-    function toggleTerminal(){
-      terminalField.style.display = (airport.value === 'gatwick') ? '' : 'none';
+  function fmt(d){ return d.toISOString().slice(0,10); }
+  const today = new Date();
+  const start = new Date(today); start.setDate(start.getDate() + 7);
+  const end = new Date(start); end.setDate(end.getDate() + 5);
+  dropDate.value = fmt(start);
+  pickDate.value = fmt(end);
+
+  // Pricing model: tiered daily rate, cheaper the longer you stay
+  function rateFor(days){
+    if(days <= 3) return 14.5;
+    if(days <= 7) return 11.9;
+    if(days <= 14) return 9.5;
+    return 7.9;
+  }
+
+  function calc(){
+    if(!dropDate.value || !pickDate.value){
+      dayCount.textContent = 'Pick your dates';
+      priceOut.innerHTML = '£– <small>estimate</small>';
+      return;
     }
-    airport.addEventListener('change', toggleTerminal);
-    toggleTerminal();
+    const d1 = new Date(dropDate.value + 'T' + (dropTime.value || '00:00'));
+    const d2 = new Date(pickDate.value + 'T' + (pickTime.value || '00:00'));
+    let diffMs = d2 - d1;
+    if(diffMs <= 0){
+      dayCount.textContent = 'Pick-up must be after drop-off';
+      priceOut.innerHTML = '£– <small>estimate</small>';
+      return;
+    }
+    const days = Math.max(1, Math.ceil(diffMs / (1000*60*60*24)));
 
-    function calc(){
-      if(!dropDate.value || !pickDate.value){
-        dayCount.textContent = 'Pick your dates';
-        return;
-      }
-      var d1 = new Date(dropDate.value + 'T' + (dropTime.value || '00:00'));
-      var d2 = new Date(pickDate.value + 'T' + (pickTime.value || '00:00'));
-      var diffMs = d2 - d1;
-      if(diffMs <= 0){
-        dayCount.textContent = 'Pick-up must be after drop-off';
-        return;
-      }
-      var days = Math.max(1, Math.ceil(diffMs / (1000*60*60*24)));
-      var locLabel = airportLabel[airport.value] + (airport.value === 'gatwick' ? ' ' + (terminal.value === 'north' ? 'North' : 'South') + ' Terminal' : '');
-      dayCount.textContent = days + (days === 1 ? ' day' : ' days') + ' · ' + locLabel;
+    if(airport.value !== 'gatwick'){
+      dayCount.textContent = days + (days === 1 ? ' day' : ' days') + ' · ' + airportLabel[airport.value];
+      priceOut.innerHTML = '<a href="tel:+441293300006" style="font-size:20px;">Contact us for a quote</a>';
+      return;
     }
 
-    [dropDate, pickDate, dropTime, pickTime, airport, terminal].forEach(function(el){ el.addEventListener('input', calc); });
-    airport.addEventListener('change', calc);
+    const rate = rateFor(days);
+    const total = Math.round(days * rate * 100) / 100;
+    const locLabel = airportLabel[airport.value] + ' ' + (terminal.value === 'north' ? 'North' : 'South') + ' Terminal';
+    dayCount.textContent = days + (days === 1 ? ' day' : ' days') + ' · ' + locLabel + ' · £' + rate.toFixed(2) + '/day';
+    priceOut.innerHTML = '£' + total.toFixed(2) + ' <small>total estimate</small>';
+  }
+
+  [dropDate, pickDate, dropTime, pickTime, airport, terminal].forEach(el => el.addEventListener('input', calc));
+  airport.addEventListener('change', calc);
+  calc();
+
+  bookBtn.addEventListener('click', function(){
     calc();
+    bookBtn.textContent = 'Redirecting to booking form…';
+    setTimeout(() => { bookBtn.textContent = 'Book Now →'; }, 1400);
+  });
 
-    function pad(v){ return String(v).padStart(2, "0"); }
-    function toParkflowParam(dateVal, timeVal){
-      // dateVal: YYYY-MM-DD, timeVal: HH:mm -> YYYYMMDDHHmm
-      var datePart = dateVal.replace(/-/g, "");
-      var timePart = timeVal.replace(":", "");
-      return datePart + timePart;
-    }
-
-    function showWidget(){
-      if(summary) summary.style.display = "none";
-      if(widget) widget.style.display = "block";
-    }
-
-    if(openBtn){
-      openBtn.addEventListener("click", function(){
-        if(dropDate.value && dropTime.value && pickDate.value && pickTime.value){
-          var arrival = toParkflowParam(dropDate.value, dropTime.value);
-          var departure = toParkflowParam(pickDate.value, pickTime.value);
-          var url = window.location.pathname + "?arrival=" + arrival + "&departure=" + departure + "#quote";
-          window.location.href = url;
-          return; // page will reload with params; widget picks them up on load
+  }
+  // FAQ accordion
+  if(document.querySelector('.faq-item')){
+  document.querySelectorAll('.faq-item').forEach(item => {
+    const q = item.querySelector('.faq-q');
+    const a = item.querySelector('.faq-a');
+    q.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(open => {
+        if(open !== item){
+          open.classList.remove('open');
+          open.querySelector('.faq-a').style.maxHeight = null;
         }
-        showWidget();
       });
-    }
-
-    // If we arrived here via a Book Now redirect, the URL already has arrival/departure —
-    // skip straight to the booking form instead of showing the calculator again.
-    var params = new URLSearchParams(window.location.search);
-    if(params.get("arrival") && params.get("departure")){
-      showWidget();
-    }
-  })();
+      if(isOpen){
+        item.classList.remove('open');
+        a.style.maxHeight = null;
+      } else {
+        item.classList.add('open');
+        a.style.maxHeight = a.scrollHeight + 'px';
+      }
+    });
+  });  }
 </script>
-
-<script src="//widget.parkflow.io/elements/parkflow-widget.js" async crossorigin type="text/javascript"></script>
 
 
 <script>
