@@ -1,0 +1,538 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Contact Us — Zebra Parking</title>
+<meta name="description" content="Get in touch with Zebra Parking — phone, email, and address for our Gatwick meet & greet team.">
+<link rel="canonical" href="https://www.zebraparkinggatwick.com/contact-us.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Zebra Parking">
+<meta property="og:title" content="Contact Us — Zebra Parking">
+<meta property="og:url" content="https://www.zebraparkinggatwick.com/contact-us.html">
+<meta property="og:image" content="https://www.zebraparkinggatwick.com/assets/zebra-logo-white.png">
+<meta name="twitter:card" content="summary">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ParkingFacility",
+  "name": "Zebra Parking",
+  "image": "https://www.zebraparkinggatwick.com/assets/zebra-logo-white.png",
+  "telephone": "+441293300006",
+  "email": "booking@zebraparking.co.uk",
+  "url": "https://www.zebraparkinggatwick.com/",
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "30 Oakhill Chase, Poundhill",
+    "addressLocality": "Crawley",
+    "postalCode": "RH10 7PB",
+    "addressCountry": "GB"
+  },
+  "areaServed": {
+    "@type": "Airport",
+    "name": "London Gatwick Airport"
+  },
+  "sameAs": [
+    "https://facebook.com/profile.php?id=61591375779476",
+    "https://x.com/ZebraParkinguk",
+    "https://instagram.com/Zebraparkingofficial"
+  ]
+}
+</script>
+<style>
+  :root{
+    --ink:#14161A;
+    --paper:#F7F5EF;
+    --amber:#F1610C;
+    --amber-dark:#C94F09;
+    --slate:#5B6570;
+    --forest:#2F6B4F;
+    --white:#FFFFFF;
+    --line: rgba(20,22,26,0.12);
+    --radius: 4px;
+    --stripe-h: 14px;
+    --maxw: 1180px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--paper);
+    color:var(--ink);
+    font-family: "Inter", system-ui, -apple-system, "Segoe UI", sans-serif;
+    line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4{
+    font-family:"Archivo Black","Arial Black",sans-serif;
+    text-transform:uppercase;
+    letter-spacing:0.01em;
+    line-height:1.05;
+    margin:0 0 0.5em;
+  }
+  a{color:inherit;text-decoration:none;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:var(--maxw); margin:0 auto; padding:0 28px;}
+  .eyebrow{
+    display:inline-flex; align-items:center; gap:8px;
+    font-size:12.5px; font-weight:700; letter-spacing:0.14em; text-transform:uppercase;
+    color:var(--forest);
+  }
+  .eyebrow::before{content:""; width:18px; height:3px; background:var(--amber); display:inline-block;}
+  .btn{
+    display:inline-flex; align-items:center; justify-content:center; gap:8px;
+    font-family:"Archivo Black","Arial Black",sans-serif;
+    text-transform:uppercase; letter-spacing:0.03em; font-size:14.5px;
+    padding:16px 30px; border-radius:var(--radius); border:2px solid var(--ink);
+    cursor:pointer; transition:transform .15s ease, box-shadow .15s ease;
+  }
+  .btn-primary{background:var(--amber); color:var(--white); border-color:var(--ink); font-weight:800;}
+  .btn-primary:hover{transform:translateY(-2px); box-shadow:5px 5px 0 var(--ink);}
+  .btn-ghost{background:transparent; color:var(--ink);}
+  .btn-ghost:hover{transform:translateY(-2px); box-shadow:5px 5px 0 var(--ink);}
+  .btn-block{width:100%;}
+
+  /* Stripe divider — the signature motif: an angled zebra-crossing / runway bar */
+  .stripes{
+    height:var(--stripe-h);
+    background: repeating-linear-gradient(
+      -35deg,
+      var(--ink) 0 22px,
+      var(--amber) 22px 44px
+    );
+  }
+  .stripes.thin{height:8px;}
+
+  /* Header */
+  header{
+    position:sticky; top:0; z-index:50;
+    background:var(--paper);
+    border-bottom:2px solid var(--ink);
+  }
+  .topbar{
+    background:var(--amber); color:var(--white);
+    font-size:13px; padding:8px 0;
+  }
+  .topbar .wrap{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:6px;}
+  .topbar a{font-weight:800;}
+  .topbar .stars{color:var(--white);}
+  nav.mainnav{padding:16px 0;}
+  nav.mainnav .wrap{display:flex; align-items:center; justify-content:space-between; gap:24px;}
+  .logo{display:flex; align-items:center; gap:10px; font-family:"Archivo Black","Arial Black",sans-serif; font-size:22px; text-transform:uppercase;}
+  .logo .mark{width:48px; height:48px; flex:none;}
+  .navlinks{display:flex; gap:28px; font-weight:700; font-size:14.5px; text-transform:uppercase; letter-spacing:0.02em;}
+  .navlinks a{padding:6px 0; border-bottom:2px solid transparent;}
+  .navlinks a:hover{border-color:var(--amber);}
+  .navcta{display:flex; align-items:center; gap:16px;}
+  .navcta .btn{padding:12px 22px; font-size:13px;}
+  .burger{display:none; flex-direction:column; justify-content:center; gap:5px; width:34px; height:34px; background:none; border:none; cursor:pointer; padding:0;}
+  .burger span{display:block; width:100%; height:3px; background:var(--ink); border-radius:2px; transition:transform .2s ease, opacity .2s ease;}
+  .burger.open span:nth-child(1){transform:translateY(8px) rotate(45deg);}
+  .burger.open span:nth-child(2){opacity:0;}
+  .burger.open span:nth-child(3){transform:translateY(-8px) rotate(-45deg);}
+  .navlinks.mobile-open{
+    display:flex !important; flex-direction:column; gap:0;
+    position:absolute; top:100%; left:0; right:0;
+    background:var(--paper); border-top:2px solid var(--ink); border-bottom:2px solid var(--ink);
+    padding:8px 28px 16px; z-index:60;
+  }
+  .navlinks.mobile-open a{padding:12px 0; border-bottom:1px solid var(--line);}
+
+  /* Hero */
+  .hero{padding:64px 0 0;}
+  .hero .wrap{display:grid; grid-template-columns: 1.05fr 0.95fr; gap:56px; align-items:start;}
+  .hero h1{font-size:clamp(40px, 5.4vw, 68px); margin-bottom:0.35em;}
+  .hero h1 em{font-style:normal; color:var(--forest);}
+  .hero p.lead{font-size:18px; color:var(--slate); max-width:46ch; margin-bottom:26px;}
+  .checklist{list-style:none; margin:0 0 32px; padding:0; display:flex; flex-direction:column; gap:10px;}
+  .checklist li{display:flex; gap:10px; align-items:flex-start; font-weight:600;}
+  .checklist .tick{
+    flex:none; width:22px; height:22px; border-radius:50%;
+    background:var(--amber); color:var(--ink); font-size:13px; font-weight:900;
+    display:flex; align-items:center; justify-content:center; margin-top:1px;
+  }
+  .stat-row{display:flex; gap:36px; margin-top:36px;}
+  .stat b{display:block; font-family:"Archivo Black","Arial Black",sans-serif; font-size:30px;}
+  .stat span{font-size:12.5px; color:var(--slate); text-transform:uppercase; letter-spacing:0.06em; font-weight:700;}
+
+  /* Quote card */
+  .quote-card{
+    background:var(--white); border:2px solid var(--ink); border-radius:var(--radius);
+    padding:28px; box-shadow:8px 8px 0 var(--ink);
+  }
+  .quote-card h3{font-size:19px; margin-bottom:2px;}
+  .quote-card .sub{color:var(--slate); font-size:13.5px; margin-bottom:20px; font-weight:600;}
+  .field-row{display:grid; grid-template-columns:1fr 1fr; gap:12px; margin-bottom:12px;}
+  .field label{display:block; font-size:11.5px; font-weight:800; text-transform:uppercase; letter-spacing:0.06em; color:var(--slate); margin-bottom:6px;}
+  .field input, .field select{
+    width:100%; padding:11px 12px; border:2px solid var(--line); border-radius:var(--radius);
+    font-family:inherit; font-size:14.5px; background:var(--paper); color:var(--ink);
+  }
+  .field input:focus, .field select:focus{outline:none; border-color:var(--forest);}
+  .quote-result{
+    margin-top:18px; padding:16px; background:var(--paper); border:2px dashed var(--line); border-radius:var(--radius);
+    display:flex; justify-content:space-between; align-items:center; min-height:70px;
+  }
+  .quote-result .price{font-family:"Archivo Black","Arial Black",sans-serif; font-size:32px;}
+  .quote-result .price small{font-size:14px; font-family:"Inter",sans-serif; text-transform:none; color:var(--slate); font-weight:600;}
+  .quote-result .days{font-size:12.5px; color:var(--slate); font-weight:700; text-transform:uppercase; letter-spacing:0.04em;}
+  .quote-note{font-size:12px; color:var(--slate); margin-top:8px;}
+  .quote-card .btn{margin-top:16px;}
+  .badge-row{display:flex; flex-wrap:wrap; gap:10px 18px; margin-top:20px; font-size:12.5px; font-weight:700; color:var(--slate);}
+  .badge-row span{display:flex; align-items:center; gap:6px;}
+
+  section{padding:80px 0;}
+  .section-head{max-width:640px; margin-bottom:48px;}
+  .section-head h2{font-size:clamp(28px,3.4vw,42px); margin-top:14px;}
+  .section-head p{color:var(--slate); font-size:16.5px; margin-top:10px;}
+
+  /* Value grid */
+  .value-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:2px; background:var(--ink); border:2px solid var(--ink);}
+  .value-cell{background:var(--white); padding:32px 28px;}
+  .value-cell .icon{width:40px; height:40px; margin-bottom:16px;}
+  .value-cell h4{font-size:16px; margin-bottom:8px;}
+  .value-cell p{font-size:14.5px; color:var(--slate); margin:0;}
+
+  /* Route / how it works */
+  .route{position:relative; padding-top:10px;}
+  .route-track{
+    position:relative; display:grid; grid-template-columns:repeat(3,1fr); gap:40px;
+  }
+  .route-track::before{
+    content:""; position:absolute; top:28px; left:calc(100%/6); right:calc(100%/6);
+    height:6px;
+    background: repeating-linear-gradient(90deg, var(--ink) 0 26px, transparent 26px 44px);
+  }
+  .route-step{position:relative; text-align:left;}
+  .route-num{
+    width:58px; height:58px; border-radius:50%; background:var(--amber); border:3px solid var(--ink);
+    display:flex; align-items:center; justify-content:center; font-family:"Archivo Black","Arial Black",sans-serif; font-size:22px;
+    position:relative; z-index:2; margin-bottom:20px;
+  }
+  .route-step h4{font-size:18px; margin-bottom:8px;}
+  .route-step p{color:var(--slate); font-size:14.5px; margin:0;}
+
+  /* Journey */
+  .journey{display:grid; grid-template-columns:repeat(3,1fr); gap:28px;}
+  .journey-card{background:var(--white); border:2px solid var(--ink); border-radius:var(--radius); overflow:hidden;}
+  .journey-art{height:150px; display:flex; align-items:center; justify-content:center; background:var(--ink);}
+  .journey-body{padding:24px;}
+  .journey-body .tag{font-size:11.5px; font-weight:800; text-transform:uppercase; letter-spacing:0.06em; color:var(--forest); margin-bottom:8px; display:block;}
+  .journey-body h4{font-size:18px; margin-bottom:8px;}
+  .journey-body p{font-size:14.5px; color:var(--slate); margin:0;}
+
+  /* Promise */
+  .promise-band{background:var(--ink); color:var(--paper);}
+  .promise-band .section-head p{color:#B9BEC6;}
+  .promise-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:2px; background:rgba(247,245,239,0.18); border:1px solid rgba(247,245,239,0.18);}
+  .promise-cell{background:var(--ink); padding:26px 22px;}
+  .promise-cell .num{font-family:"Archivo Black","Arial Black",sans-serif; color:var(--amber); font-size:13px; margin-bottom:12px;}
+  .promise-cell h4{font-size:15.5px; margin-bottom:8px; color:var(--paper);}
+  .promise-cell p{font-size:13.5px; color:#B9BEC6; margin:0;}
+
+  /* Reviews */
+  .review-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:20px;}
+  .review-card{background:var(--white); border:2px solid var(--ink); border-radius:var(--radius); padding:22px;}
+  .review-card .stars{color:var(--amber); letter-spacing:2px; margin-bottom:12px; font-size:15px;}
+  .review-card h4{font-size:15px; text-transform:none; font-family:"Inter",sans-serif; font-weight:800; margin-bottom:8px;}
+  .review-card p{font-size:13.5px; color:var(--slate); margin:0 0 14px;}
+  .review-card .who{font-size:12.5px; font-weight:700; color:var(--ink);}
+
+  /* FAQ */
+  .faq-list{border-top:2px solid var(--ink);}
+  .faq-item{border-bottom:2px solid var(--ink);}
+  .faq-q{
+    width:100%; text-align:left; background:none; border:none; cursor:pointer;
+    padding:22px 4px; display:flex; justify-content:space-between; align-items:center; gap:20px;
+    font-family:"Archivo Black","Arial Black",sans-serif; font-size:16px; text-transform:none; color:var(--ink);
+  }
+  .faq-q .plus{flex:none; width:26px; height:26px; border:2px solid var(--ink); border-radius:50%; position:relative;}
+  .faq-q .plus::before, .faq-q .plus::after{content:""; position:absolute; background:var(--ink); top:50%; left:50%; transform:translate(-50%,-50%);}
+  .faq-q .plus::before{width:12px; height:2px;}
+  .faq-q .plus::after{width:2px; height:12px; transition:transform .2s ease;}
+  .faq-item.open .plus::after{transform:translate(-50%,-50%) rotate(90deg) scaleY(0);}
+  .faq-a{max-height:0; overflow:hidden; transition:max-height .25s ease;}
+  .faq-a p{padding:0 4px 22px; color:var(--slate); font-size:14.5px; max-width:70ch;}
+
+  /* CTA band */
+  .cta-band{background:var(--forest); color:var(--paper); text-align:center;}
+  .cta-band h2{font-size:clamp(28px,4vw,44px); color:var(--paper);}
+  .cta-band p{color:#DCEAE1; max-width:52ch; margin:0 auto 28px; font-size:16.5px;}
+  .cta-band .btn-primary{background:var(--amber); border-color:var(--ink); color:var(--white); font-weight:800;}
+  .cta-band .btn-primary:hover{box-shadow:5px 5px 0 var(--ink);}
+
+  /* Footer */
+  footer{background:var(--amber); color:var(--white); padding:64px 0 28px;}
+  .foot-grid{display:grid; grid-template-columns:1.4fr 1fr 1fr 1.2fr; gap:40px; margin-bottom:48px;}
+  .foot-logo{display:flex; align-items:center; gap:10px; font-family:"Archivo Black","Arial Black",sans-serif; font-size:20px; text-transform:uppercase; margin-bottom:14px;}
+  .foot-grid p{color:var(--white); font-weight:600; font-size:14px; max-width:32ch;}
+  .foot-col h5{font-size:12.5px; text-transform:uppercase; letter-spacing:0.08em; color:var(--white); font-weight:800; margin-bottom:16px;}
+  .foot-col a, .foot-col p{display:block; color:var(--white); font-size:14px; margin-bottom:10px; font-weight:700;}
+  .foot-social{display:flex; gap:12px; margin-top:16px;}
+  .foot-social a{width:36px; height:36px; background:var(--white); border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 1px 3px rgba(0,0,0,0.2);}
+  .foot-social{flex-wrap:wrap;}
+  .foot-bottom{border-top:1px solid rgba(255,255,255,0.35); padding-top:24px; display:flex; justify-content:space-between; flex-wrap:wrap; gap:10px; font-size:12.5px; color:var(--white); font-weight:700;}
+
+  @media (max-width: 980px){
+    .hero .wrap{grid-template-columns:1fr;}
+    .value-grid{grid-template-columns:1fr;}
+    .route-track{grid-template-columns:1fr; gap:28px;}
+    .route-track::before{display:none;}
+    .journey{grid-template-columns:1fr;}
+    .promise-grid{grid-template-columns:repeat(2,1fr);}
+    .review-grid{grid-template-columns:repeat(2,1fr);}
+    .foot-grid{grid-template-columns:1fr 1fr;}
+    .navlinks{display:none;}
+    .burger{display:flex;}
+    nav.mainnav .wrap{position:relative;}
+  }
+  @media (max-width: 560px){
+    .field-row{grid-template-columns:1fr;}
+    .promise-grid{grid-template-columns:1fr;}
+    .review-grid{grid-template-columns:1fr;}
+    .foot-grid{grid-template-columns:1fr;}
+    .stat-row{flex-wrap:wrap; gap:20px;}
+    section{padding:56px 0;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    *{transition:none !important; scroll-behavior:auto !important;}
+  }
+  :focus-visible{outline:3px solid var(--forest); outline-offset:2px;}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="topbar">
+    <div class="wrap">
+      <div>🤝 Gatwick Meet &amp; Greet · <span class="stars">★★★★★</span> Rated 5 by our customers</div>
+      <a href="tel:+441293300006">📞 +44 1293 300006</a> <a href="mailto:info@zebraparkinggatwick.com" style="margin-left:14px;">✉️ info@zebraparkinggatwick.com</a>
+    </div>
+  </div>
+  <nav class="mainnav">
+    <div class="wrap">
+      <a href="index.html" class="logo">
+        <img class="mark" src="assets/zebra-logo-white.png" alt="Zebra Parking logo" style="background:#14161A;border-radius:6px;padding:3px;object-fit:contain;">
+        Zebra Parking
+      </a>
+      <div class="navlinks">
+        <a href="how-it-works.html">How It Works</a>
+        <a href="services.html">Services</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="customer-reviews.html">Reviews</a>
+        <a href="faqs.html">FAQs</a>
+        <a href="contact-us.html">Contact Us</a>
+      </div>
+      <div class="navcta">
+        <a href="index.html#quote" class="btn btn-primary">Book Now</a>
+        <button class="burger" id="navBurger" aria-label="Open menu" aria-expanded="false" type="button">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
+    </div>
+  </nav>
+  <div class="stripes thin"></div>
+</header>
+
+<main>
+<section>
+    <div class="wrap" style="max-width:640px;">
+      <div class="section-head">
+        <span class="eyebrow">Get in touch</span>
+        <h1>Contact Zebra Parking</h1>
+        <p>Questions about a booking, or need to speak to the team? We're here to help.</p>
+      </div>
+      <div class="value-cell" style="border:2px solid var(--ink); border-radius:var(--radius); padding:32px;">
+        <p style="margin:0 0 16px; font-weight:700;">📞 <a href="tel:+441293300006">+44 1293 300006</a></p>
+        <p style="margin:0 0 16px; font-weight:700;">☎️ <a href="tel:+441293300006">01293 300006</a></p>
+        <p style="margin:0 0 16px; font-weight:700;">✉️ <a href="mailto:booking@zebraparking.co.uk">booking@zebraparking.co.uk</a></p>
+        <p style="margin:0; color:var(--slate);">30 Oakhill Chase, Poundhill,<br>Crawley, RH10 7PB</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="stripes"></div>
+<!-- CTA -->
+  <section class="cta-band">
+    <div class="wrap">
+      <span class="eyebrow" style="color:var(--amber);">Your journey starts with us</span>
+      <h2>Book your spot today</h2>
+      <p>Experience the ease and reliability of Zebra Airport Parking, and travel with confidence.</p>
+      <a href="#quote" class="btn btn-primary">Book Your Parking Now</a>
+    </div>
+  </section>
+</main>
+
+<footer>
+  <div class="wrap">
+    <div class="foot-grid">
+      <div>
+        <div class="foot-logo">
+          <img src="assets/zebra-logo-white.png" alt="Zebra Parking logo" style="width:44px;height:44px;background:#14161A;border-radius:6px;padding:3px;object-fit:contain;">
+          Zebra Parking
+        </div>
+        <p>Secure, reliable, affordable Gatwick Airport meet &amp; greet parking. We care. We park. You fly. 🦓</p>
+        <div class="foot-social">
+          <a href="https://facebook.com/profile.php?id=61591375779476" aria-label="Facebook"><svg viewBox="0 0 24 24" width="18" height="18"><path fill="#1877F2" d="M22 12.06C22 6.5 17.52 2 12 2S2 6.5 2 12.06c0 5 3.66 9.14 8.44 9.94v-7.03H7.9v-2.91h2.54V9.85c0-2.5 1.49-3.89 3.77-3.89 1.09 0 2.23.2 2.23.2v2.46h-1.26c-1.24 0-1.63.77-1.63 1.56v1.88h2.78l-.44 2.91h-2.34V22c4.78-.8 8.44-4.94 8.44-9.94z"/></svg></a>
+          <a href="https://x.com/ZebraParkinguk" aria-label="Twitter"><svg viewBox="0 0 24 24" width="18" height="18"><path fill="#1DA1F2" d="M22.46 6c-.77.35-1.6.58-2.46.69.88-.53 1.56-1.37 1.88-2.38-.83.49-1.75.85-2.72 1.04A4.28 4.28 0 0 0 15.5 4c-2.37 0-4.29 1.92-4.29 4.29 0 .34.04.67.11.98C7.69 9.1 4.07 7.15 1.64 4.16c-.37.64-.58 1.38-.58 2.17 0 1.49.76 2.81 1.92 3.58-.7-.02-1.36-.21-1.94-.53v.05c0 2.08 1.48 3.82 3.44 4.21-.36.1-.74.15-1.13.15-.28 0-.55-.03-.81-.08.55 1.71 2.14 2.95 4.02 2.99A8.6 8.6 0 0 1 0.5 18.58 12.13 12.13 0 0 0 7.06 20.5c7.87 0 12.18-6.52 12.18-12.18 0-.19 0-.37-.01-.56.84-.6 1.56-1.36 2.13-2.22z"/></svg></a>
+          <a href="https://instagram.com/Zebraparkingofficial" aria-label="Instagram"><svg viewBox="0 0 24 24" width="18" height="18"><defs><linearGradient id="igGrad" x1="0%" y1="100%" x2="100%" y2="0%"><stop offset="0%" stop-color="#FEDA75"/><stop offset="30%" stop-color="#FA7E1E"/><stop offset="60%" stop-color="#D62976"/><stop offset="85%" stop-color="#962FBF"/><stop offset="100%" stop-color="#4F5BD5"/></linearGradient></defs><rect x="2" y="2" width="20" height="20" rx="5.5" fill="url(#igGrad)"/><rect x="6.3" y="6.3" width="11.4" height="11.4" rx="3.6" fill="none" stroke="#fff" stroke-width="1.6"/><circle cx="12" cy="12" r="3.2" fill="none" stroke="#fff" stroke-width="1.6"/><circle cx="17.1" cy="6.9" r="1.05" fill="#fff"/></svg></a>
+          <a href="https://www.linkedin.com/company/zebra-airport-parking-gatwick/" aria-label="LinkedIn"><svg viewBox="0 0 24 24" width="18" height="18"><rect width="24" height="24" rx="4" fill="#0A66C2"/><path fill="#fff" d="M7.12 9.4H4.4V19.6h2.72V9.4zM5.76 8.2a1.58 1.58 0 1 0 0-3.16 1.58 1.58 0 0 0 0 3.16zM19.6 19.6h-2.72v-5.2c0-1.24-.02-2.83-1.72-2.83-1.73 0-2 1.35-2 2.74v5.29H10.44V9.4h2.6v1.4h.04c.36-.68 1.25-1.4 2.58-1.4 2.76 0 3.27 1.82 3.27 4.18v6.02z"/></svg></a>
+          <a href="https://www.pinterest.com/booking0793" aria-label="Pinterest"><svg viewBox="0 0 24 24" width="18" height="18"><circle cx="12" cy="12" r="10" fill="#E60023"/><path fill="#fff" d="M12.3 5.3c-3.9 0-5.9 2.8-5.9 5.15 0 1.42.54 2.69 1.69 3.16.19.08.36 0 .41-.21l.17-.65c.06-.2.03-.28-.11-.45-.32-.38-.52-.87-.52-1.57 0-2.02 1.51-3.83 3.94-3.83 2.15 0 3.33 1.31 3.33 3.07 0 2.31-1.02 4.26-2.54 4.26-.84 0-1.46-.69-1.26-1.54.24-1.01.7-2.1.7-2.83 0-.65-.35-1.2-1.08-1.2-.85 0-1.54.88-1.54 2.06 0 .75.25 1.26.25 1.26s-.86 3.63-1.01 4.27c-.3 1.27-.05 2.83-.02 2.98.02.09.13.11.18.04.07-.09 1-1.24 1.32-2.48.09-.34.51-1.95.51-1.95.27.51 1.05.94 1.88.94 2.47 0 4.26-2.27 4.26-5.08 0-2.7-2.2-4.9-5.66-4.9z"/></svg></a>
+          <a href="https://www.tiktok.com/@zebra.park.limite" aria-label="TikTok"><svg viewBox="0 0 24 24" width="18" height="18"><rect width="24" height="24" rx="5" fill="#000"/><path fill="#25F4EE" d="M15.4 4.3c.4 1.7 1.5 2.9 3.2 3.1v2.3c-1.2 0-2.2-.4-3.1-1.1v5.1c0 2.6-2.1 4.6-4.7 4.6-1 0-1.9-.3-2.7-.9a4.63 4.63 0 0 1-1.9-3.7c0-2.6 2.1-4.6 4.7-4.6.3 0 .5 0 .8.1v2.4c-.3-.1-.5-.1-.8-.1-1.2 0-2.2 1-2.2 2.2 0 .8.4 1.5 1.1 1.9.3.2.7.3 1.1.3 1.2 0 2.2-.9 2.3-2.1V4.3h2.2z"/><path fill="#FE2C55" d="M14.9 4.3c.4 1.7 1.5 2.9 3.2 3.1v2.3c-1.2 0-2.2-.4-3.1-1.1v5.1c0 2.6-2.1 4.6-4.7 4.6-1 0-1.9-.3-2.7-.9a4.55 4.55 0 0 0 2.2.6c2.6 0 4.7-2.1 4.7-4.6V4.3h.4z"/></svg></a>
+          <a href="https://www.youtube.com/@Zebraparking" aria-label="YouTube"><svg viewBox="0 0 24 24" width="18" height="18"><rect x="1" y="4.5" width="22" height="15" rx="4" fill="#FF0000"/><path fill="#fff" d="M10 8.6l6 3.4-6 3.4z"/></svg></a>
+        </div>
+      </div>
+      <div class="foot-col">
+        <h5>Company</h5>
+        <a href="how-it-works.html">How It Works</a>
+        <a href="services.html">Services</a>
+        <a href="pricing.html">Pricing</a>
+        <a href="customer-reviews.html">Customer Reviews</a>
+      </div>
+      <div class="foot-col">
+        <h5>Support</h5>
+        <a href="faqs.html">FAQs</a>
+        <a href="pricing.html">Get a Quote</a>
+      </div>
+      <div class="foot-col">
+        <h5>Contact</h5>
+        <a href="tel:+441293300006">📞 +44 1293 300006</a>
+        <a href="tel:+441293300006">☎️ 01293 300006</a>
+        <a href="mailto:booking@zebraparking.co.uk">✉️ booking@zebraparking.co.uk</a>
+        <p>30 Oakhill Chase, Poundhill,<br>Crawley, RH10 7PB</p>
+      </div>
+    </div>
+    <div class="stripes thin" style="margin-bottom:24px;"></div>
+    <div class="foot-bottom">
+      <div>© <span id="yr"></span> Zebra Parking. All rights reserved.</div>
+      <div>We care. We park. You fly. 🦓</div>
+    </div>
+  </div>
+</footer>
+
+<script>
+  var __yr = document.getElementById('yr'); if(__yr){ __yr.textContent = new Date().getFullYear(); }
+
+  if(document.getElementById('dropDate')){
+  // Set sensible default dates
+  const dropDate = document.getElementById('dropDate');
+  const pickDate = document.getElementById('pickDate');
+  const dropTime = document.getElementById('dropTime');
+  const pickTime = document.getElementById('pickTime');
+  const dayCount = document.getElementById('dayCount');
+  const priceOut = document.getElementById('priceOut');
+  const bookBtn = document.getElementById('bookBtn');
+  const airport = document.getElementById('airport');
+  const terminal = document.getElementById('terminal');
+  const terminalField = document.getElementById('terminalField');
+
+  function toggleTerminal(){
+    terminalField.style.display = (airport.value === 'gatwick') ? '' : 'none';
+  }
+  airport.addEventListener('change', toggleTerminal);
+  toggleTerminal();
+
+  const airportLabel = { gatwick: 'Gatwick', heathrow: 'Heathrow', stansted: 'Stansted' };
+
+  function fmt(d){ return d.toISOString().slice(0,10); }
+  const today = new Date();
+  const start = new Date(today); start.setDate(start.getDate() + 7);
+  const end = new Date(start); end.setDate(end.getDate() + 5);
+  dropDate.value = fmt(start);
+  pickDate.value = fmt(end);
+
+  // Pricing model: tiered daily rate, cheaper the longer you stay
+  function rateFor(days){
+    if(days <= 3) return 14.5;
+    if(days <= 7) return 11.9;
+    if(days <= 14) return 9.5;
+    return 7.9;
+  }
+
+  function calc(){
+    if(!dropDate.value || !pickDate.value){
+      dayCount.textContent = 'Pick your dates';
+      priceOut.innerHTML = '£– <small>estimate</small>';
+      return;
+    }
+    const d1 = new Date(dropDate.value + 'T' + (dropTime.value || '00:00'));
+    const d2 = new Date(pickDate.value + 'T' + (pickTime.value || '00:00'));
+    let diffMs = d2 - d1;
+    if(diffMs <= 0){
+      dayCount.textContent = 'Pick-up must be after drop-off';
+      priceOut.innerHTML = '£– <small>estimate</small>';
+      return;
+    }
+    const days = Math.max(1, Math.ceil(diffMs / (1000*60*60*24)));
+
+    if(airport.value !== 'gatwick'){
+      dayCount.textContent = days + (days === 1 ? ' day' : ' days') + ' · ' + airportLabel[airport.value];
+      priceOut.innerHTML = '<a href="tel:+441293300006" style="font-size:20px;">Contact us for a quote</a>';
+      return;
+    }
+
+    const rate = rateFor(days);
+    const total = Math.round(days * rate * 100) / 100;
+    const locLabel = airportLabel[airport.value] + ' ' + (terminal.value === 'north' ? 'North' : 'South') + ' Terminal';
+    dayCount.textContent = days + (days === 1 ? ' day' : ' days') + ' · ' + locLabel + ' · £' + rate.toFixed(2) + '/day';
+    priceOut.innerHTML = '£' + total.toFixed(2) + ' <small>total estimate</small>';
+  }
+
+  [dropDate, pickDate, dropTime, pickTime, airport, terminal].forEach(el => el.addEventListener('input', calc));
+  airport.addEventListener('change', calc);
+  calc();
+
+  bookBtn.addEventListener('click', function(){
+    calc();
+    bookBtn.textContent = 'Redirecting to booking form…';
+    setTimeout(() => { bookBtn.textContent = 'Book Now →'; }, 1400);
+  });
+
+  }
+  // FAQ accordion
+  if(document.querySelector('.faq-item')){
+  document.querySelectorAll('.faq-item').forEach(item => {
+    const q = item.querySelector('.faq-q');
+    const a = item.querySelector('.faq-a');
+    q.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item.open').forEach(open => {
+        if(open !== item){
+          open.classList.remove('open');
+          open.querySelector('.faq-a').style.maxHeight = null;
+        }
+      });
+      if(isOpen){
+        item.classList.remove('open');
+        a.style.maxHeight = null;
+      } else {
+        item.classList.add('open');
+        a.style.maxHeight = a.scrollHeight + 'px';
+      }
+    });
+  });  }
+</script>
+
+
+<script>
+  (function(){
+    var burger = document.getElementById('navBurger');
+    var links = document.querySelector('.navlinks');
+    if(burger && links){
+      burger.addEventListener('click', function(){
+        var isOpen = links.classList.toggle('mobile-open');
+        burger.classList.toggle('open', isOpen);
+        burger.setAttribute('aria-expanded', isOpen ? 'true' : 'false');
+      });
+      links.querySelectorAll('a').forEach(function(a){
+        a.addEventListener('click', function(){
+          links.classList.remove('mobile-open');
+          burger.classList.remove('open');
+          burger.setAttribute('aria-expanded', 'false');
+        });
+      });
+    }
+  })();
+</script>
+</body>
+</html>
